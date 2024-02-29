@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
             endgameObjects[2].SetActive(true);
             //^^^ Bar gate and boss door
             //VVV Doors on the left and right
-            endgameObjects[3].SetActive(false);
-            endgameObjects[4].SetActive(false);
+            //endgameObjects[3].SetActive(false);
+            //endgameObjects[4].SetActive(false);
         }
     }
 }

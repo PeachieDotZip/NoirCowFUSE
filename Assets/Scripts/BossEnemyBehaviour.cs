@@ -249,12 +249,14 @@ public class BossEnemyBehaviour : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        CowHealthBehavior.currentScore += Random.Range(5, 15);
         anim.SetTrigger("hurt");
         hurtSFX.Play();
         bossHealth -= damageAmount;
     }
     public void TakeDamage_Stun(float damageAmount)
     {
+        CowHealthBehavior.currentScore += Random.Range(50, 60);
         Instantiate(bashedEffect, gameObject.transform.position, umbrella.gameObject.transform.rotation);
         bossHealth -= damageAmount;
     }

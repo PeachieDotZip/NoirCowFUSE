@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 9c1b4d4eee8e68b48963ccbea0f82a64
   - enabled: 1
-    path: Assets/Scenes/First Playable Scene.unity
+    path: Assets/Scenes/FuseFirstIteration.unity
     guid: e7fbfc9f2ff9447ff8afbfaa9c3049ec
   - enabled: 1
     path: Assets/Scenes/Checkpoint1.unity

@@ -110,6 +110,7 @@ public class MeleeEnemyBehavior : MonoBehaviour
     }
     public void DestroyEnemy()
     {
+        CowHealthBehavior.currentScore += Random.Range(100, 125);
         Destroy(gameObject);
     }
 
