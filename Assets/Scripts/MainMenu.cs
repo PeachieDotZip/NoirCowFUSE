@@ -13,6 +13,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     /// <summary>
+    /// Sets time scale back to 1
+    /// </summary>
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+    /// <summary>
     /// Quits the game
     /// </summary>
     public void exitGame()
@@ -21,10 +28,10 @@ public class MainMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// Goes to the first playable
+    /// Goes to the fusr first iteration
     /// </summary>
     public void playGame()
     {
-        SceneManager.LoadScene("First Playable Scene");
+        SceneManager.LoadScene("FuseFirstIteration");
     }
 }
