@@ -116,6 +116,15 @@ public partial class @CowInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""78dd1d6f-81a8-489c-8e9d-0eb28b3b30a8"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -231,28 +240,6 @@ public partial class @CowInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1635d3fe-58b6-4ba9-a4e2-f4b964f6b5c8"",
-                    ""path"": ""<XRController>/{Primary2DAxis}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3ea4d645-4504-4529-b061-ab81934c3752"",
-                    ""path"": ""<Joystick>/stick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
@@ -319,11 +306,55 @@ public partial class @CowInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""bf7906ce-f084-4f2a-893d-1853331760a7"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UmbrellaOpen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4723337-a9a3-4fda-8153-005993e956e4"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UmbrellaOpen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c59ee099-9a54-46d3-838c-6a69ef79f38b"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UmbrellaPoke"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9699f591-21ae-4da3-a110-df7d35e57406"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UmbrellaPoke"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1413fb0f-e663-4aa5-8baf-f92d877969b2"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""UmbrellaPoke"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -424,6 +455,28 @@ public partial class @CowInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""610f9353-4f87-41ec-b586-0131d7eb2767"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab933f4f-b032-45e7-bd8e-ccc3d6e8018c"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1021,6 +1074,7 @@ public partial class @CowInput : IInputActionCollection2, IDisposable
         m_Player_press2 = m_Player.FindAction("press2", throwIfNotFound: true);
         m_Player_press3 = m_Player.FindAction("press3", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1102,6 +1156,7 @@ public partial class @CowInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_press2;
     private readonly InputAction m_Player_press3;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_Look;
     public struct PlayerActions
     {
         private @CowInput m_Wrapper;
@@ -1116,6 +1171,7 @@ public partial class @CowInput : IInputActionCollection2, IDisposable
         public InputAction @press2 => m_Wrapper.m_Player_press2;
         public InputAction @press3 => m_Wrapper.m_Player_press3;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1155,6 +1211,9 @@ public partial class @CowInput : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1189,6 +1248,9 @@ public partial class @CowInput : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
             }
         }
     }
@@ -1355,6 +1417,7 @@ public partial class @CowInput : IInputActionCollection2, IDisposable
         void OnPress2(InputAction.CallbackContext context);
         void OnPress3(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

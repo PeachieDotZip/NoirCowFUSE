@@ -17,7 +17,7 @@ public class LookAtMouse : MonoBehaviour
     public CowHealthBehavior cowHealth;
     public bool canLook;
     private Animator anim;
-
+    [SerializeField] private Rigidbody2D rb2D;
 
     private void Start()
     {
@@ -32,11 +32,27 @@ public class LookAtMouse : MonoBehaviour
     {
         if (canLook == true)
         {
-            gameObject.transform.position = cow.transform.position;
+            if (GameManager.usingController == false)
+            {
+                gameObject.transform.position = cow.transform.position;
 
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-            transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
+                transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
+            }
+            if (GameManager.usingController == true)
+            {
+                gameObject.transform.position = cow.transform.position;
+
+                if (cowController.lookInput.x == 0 && cowController.lookInput.y == 0)
+                {
+                    //transform.up = rb2D.velocity.normalized;
+                }
+                if (cowController.lookInput.x != 0 && cowController.lookInput.y != 0)
+                {
+                    transform.rotation = Quaternion.LookRotation(Vector3.forward, cowController.lookInput);
+                }
+            }
         }
         anim.SetBool("dead", cowController.isDead);
     }

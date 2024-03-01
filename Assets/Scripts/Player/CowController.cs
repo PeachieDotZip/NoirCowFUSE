@@ -17,7 +17,8 @@ public class CowController : MonoBehaviour
     public float speed;
 
     private Rigidbody2D rb;
-    private Vector2 movementInput;
+    public Vector2 movementInput;
+    public Vector2 lookInput;
     public CowInput cowActions;
     private Animator umbrellaAnim;
     private GameManager gameManager;
@@ -100,7 +101,6 @@ public class CowController : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// Measures input and move player
     /// </summary>
@@ -108,6 +108,13 @@ public class CowController : MonoBehaviour
     private void OnMove(InputValue inputValue)
     {
         movementInput = inputValue.Get<Vector2>();
+    }
+    private void OnLook(InputValue inputValue)
+    {
+        if (GameManager.usingController == true)
+        {
+            lookInput = inputValue.Get<Vector2>();
+        }
     }
 
     private void OnEnable()

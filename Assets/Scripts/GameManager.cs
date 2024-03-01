@@ -17,11 +17,25 @@ public class GameManager : MonoBehaviour
     public GameObject[] endgameObjects;
     public AudioSource bgMusic;
     public GameObject bossMusic;
+    public static bool usingController;
+    public bool isMainMenu;
 
     private void Awake()
     {
         Time.timeScale = 1.0f;
-        bgMusic = GetComponent<AudioSource>();
+
+        if (isMainMenu)
+        {
+            playerPos = null;
+            canvasAnim = null;
+            endgameObjects = null;
+            bgMusic = null;
+            bossMusic = null;
+        }
+        else
+        {
+            bgMusic = GetComponent<AudioSource>();
+        }
     }
 
     public void CheckKeyAmount()
@@ -35,6 +49,20 @@ public class GameManager : MonoBehaviour
             //VVV Doors on the left and right
             //endgameObjects[3].SetActive(false);
             //endgameObjects[4].SetActive(false);
+        }
+    }
+
+    public void ToggleControllerSupport()
+    {
+        if (usingController == false)
+        {
+            usingController = true;
+            return;
+        }
+        if (usingController == true)
+        {
+            usingController = false;
+            return;
         }
     }
 }
