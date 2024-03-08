@@ -35,6 +35,7 @@ public class DeathScreenBehavior : MonoBehaviour
     /// </summary>
     public void Restart()
     {
+        /*
         switch (gameManager.keyAmount)
         {
             case 0:
@@ -53,5 +54,7 @@ public class DeathScreenBehavior : MonoBehaviour
                 Debug.Log("Invalid amount of keys!!!");
                 break;
         }
+        */
+        SceneManager.LoadScene("FuseFirstIteration");
     }
 }
