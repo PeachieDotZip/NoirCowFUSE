@@ -97,7 +97,7 @@ public class RangedEnemyBehavior : MonoBehaviour
     }
     public void DestroyEnemy()
     {
-        CowHealthBehavior.currentScore += Random.Range(90, 105);
+        FindObjectOfType<CowHealthBehavior>().IncreaseScore(90);
         Destroy(gameObject);
     }
     public void Fire()

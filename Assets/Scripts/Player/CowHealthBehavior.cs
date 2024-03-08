@@ -12,6 +12,7 @@ using TMPro;
 using System.Runtime.Serialization;
 using UnityEngine.Profiling;
 using UnityEngine.Rendering.PostProcessing;
+using System.Net.Security;
 
 public class CowHealthBehavior : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class CowHealthBehavior : MonoBehaviour
     public PostProcessProfile profile;
     private AudioListener listener;
     public Animator canvasAnim;
-
+    public float timeSpent;
     public static float currentScore;
     public TextMeshProUGUI scoreUI;
 
@@ -39,7 +40,7 @@ public class CowHealthBehavior : MonoBehaviour
     {
         playerLives = 3;
         currentScore = 000;
-
+        timeSpent = -1f;
         youDied.SetActive(false);
         restartButton.SetActive(false);
         exitButton.SetActive(false);
@@ -52,6 +53,8 @@ public class CowHealthBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeSpent += 0.003f;
+
         scoreUI.text = "Score: " + currentScore.ToString();
 
         if (playerLives > 0)
@@ -75,7 +78,7 @@ public class CowHealthBehavior : MonoBehaviour
         {
             playerLives = 3;
         }
-        if(currentScore <= 0)
+        if(currentScore < 0)
         {
             currentScore = 0;
         }
@@ -98,6 +101,22 @@ public class CowHealthBehavior : MonoBehaviour
         {
             TakeDamage(40);
         }
+    }
+
+    public void IncreaseScore(int gain)
+    {
+        int totalGain = (gain -=(int)(timeSpent * 0.1));
+        if (totalGain < 1)
+        {
+            totalGain = 1;
+        }
+        currentScore += totalGain;
+        Debug.Log(totalGain + " added to score!");
+    }
+    public void IncreaseScore_Static(float gain)
+    {
+        currentScore += gain;
+        Debug.Log(gain + " added to score!");
     }
 
     public void TakeDamage(float damageAmount)

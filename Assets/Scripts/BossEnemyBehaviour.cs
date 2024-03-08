@@ -16,6 +16,7 @@ public class BossEnemyBehaviour : MonoBehaviour
     CowController player;
     private Transform target;
     private UmbrellaBehaviour umbrella;
+    private CowHealthBehavior cowHealth;
     public Transform shootPos0;
     public Transform shootPos1;
     public Transform shootPos2;
@@ -57,6 +58,7 @@ public class BossEnemyBehaviour : MonoBehaviour
         umbrella = FindObjectOfType<UmbrellaBehaviour>();
         gameManager = FindObjectOfType<GameManager>();
         hurtSFX = GetComponent<AudioSource>();
+        cowHealth = FindObjectOfType<CowHealthBehavior>();
     }
 
     /// <summary>
@@ -168,6 +170,7 @@ public class BossEnemyBehaviour : MonoBehaviour
             if (umbrella.isPoking)
             {
                 TakeDamage(1f);
+                cowHealth.IncreaseScore(10);
                 Debug.Log("Boss got poked!");
             }
         }
@@ -178,6 +181,7 @@ public class BossEnemyBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet_Bash"))
         {
             TakeDamage(3f);
+            cowHealth.IncreaseScore(6);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -249,14 +253,13 @@ public class BossEnemyBehaviour : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        CowHealthBehavior.currentScore += Random.Range(5, 15);
         anim.SetTrigger("hurt");
         hurtSFX.Play();
         bossHealth -= damageAmount;
     }
     public void TakeDamage_Stun(float damageAmount)
     {
-        CowHealthBehavior.currentScore += Random.Range(50, 60);
+        cowHealth.IncreaseScore(60);
         Instantiate(bashedEffect, gameObject.transform.position, umbrella.gameObject.transform.rotation);
         bossHealth -= damageAmount;
     }
@@ -304,6 +307,7 @@ public class BossEnemyBehaviour : MonoBehaviour
     }
     public void EndGame()
     {
+        cowHealth.IncreaseScore(1000);
         popSFX.Play();
         RoarSFX.Stop();
         Instantiate(popEffect, gameObject.transform.position, umbrella.gameObject.transform.rotation);

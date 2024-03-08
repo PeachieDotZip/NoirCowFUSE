@@ -110,7 +110,7 @@ public class MeleeEnemyBehavior : MonoBehaviour
     }
     public void DestroyEnemy()
     {
-        CowHealthBehavior.currentScore += Random.Range(100, 125);
+        FindObjectOfType<CowHealthBehavior>().IncreaseScore(100);
         Destroy(gameObject);
     }
 

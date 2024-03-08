@@ -39,6 +39,7 @@ public class KeyBehaviour : MonoBehaviour
     {
         gameManager.keyAmount += 1;
         Instantiate(collectEffect, gameObject.transform.position, Quaternion.identity);
+        FindObjectOfType<CowHealthBehavior>().IncreaseScore_Static(100);
     }
 
     /// <summary>
