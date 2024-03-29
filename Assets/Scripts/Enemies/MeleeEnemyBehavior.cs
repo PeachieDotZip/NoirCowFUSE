@@ -110,7 +110,7 @@ public class MeleeEnemyBehavior : MonoBehaviour
     }
     public void DestroyEnemy()
     {
-        FindObjectOfType<CowHealthBehavior>().IncreaseScore(100);
+        FindObjectOfType<CowHealthBehavior>().IncreaseScore(100, 1);
         Destroy(gameObject);
     }
 

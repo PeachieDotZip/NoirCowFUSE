@@ -35,7 +35,7 @@ public class HealScript : MonoBehaviour
     {
         Debug.Log("Player Healed!");
         cowHealth.playerLives += 1;
-        cowHealth.IncreaseScore_Static(50);
+        cowHealth.IncreaseScore_Static(50, 1);
     }
     public void DestroySelf()
     {

@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
             endgameObjects = null;
             bgMusic = null;
             bossMusic = null;
+            usingController = false;
         }
         else
         {

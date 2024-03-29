@@ -170,7 +170,7 @@ public class BossEnemyBehaviour : MonoBehaviour
             if (umbrella.isPoking)
             {
                 TakeDamage(1f);
-                cowHealth.IncreaseScore(10);
+                cowHealth.IncreaseScore(10, 0);
                 Debug.Log("Boss got poked!");
             }
         }
@@ -181,7 +181,7 @@ public class BossEnemyBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet_Bash"))
         {
             TakeDamage(3f);
-            cowHealth.IncreaseScore(6);
+            cowHealth.IncreaseScore(6, 0);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -259,7 +259,7 @@ public class BossEnemyBehaviour : MonoBehaviour
     }
     public void TakeDamage_Stun(float damageAmount)
     {
-        cowHealth.IncreaseScore(60);
+        cowHealth.IncreaseScore(60, 1);
         Instantiate(bashedEffect, gameObject.transform.position, umbrella.gameObject.transform.rotation);
         bossHealth -= damageAmount;
     }
@@ -307,7 +307,7 @@ public class BossEnemyBehaviour : MonoBehaviour
     }
     public void EndGame()
     {
-        cowHealth.IncreaseScore(1000);
+        cowHealth.IncreaseScore(1000, 2);
         popSFX.Play();
         RoarSFX.Stop();
         Instantiate(popEffect, gameObject.transform.position, umbrella.gameObject.transform.rotation);

@@ -103,7 +103,7 @@ public class CowHealthBehavior : MonoBehaviour
         }
     }
 
-    public void IncreaseScore(int gain)
+    public void IncreaseScore(int gain, int size)
     {
         int totalGain = (gain -=(int)(timeSpent * 0.1));
         if (totalGain < 1)
@@ -111,11 +111,44 @@ public class CowHealthBehavior : MonoBehaviour
             totalGain = 1;
         }
         currentScore += totalGain;
+
+        switch (size)
+        {
+            case 0:
+                canvasAnim.SetTrigger("increase_score_small");
+                break;
+            case 1:
+                canvasAnim.SetTrigger("increase_score");
+                break;
+            case 2:
+                canvasAnim.SetTrigger("increase_score_final");
+                break;
+            default:
+                Debug.Log("uhhhh something's wrong with the score size lil bro");
+                break;
+        }
+        canvasAnim.SetTrigger("increase_score");
         Debug.Log(totalGain + " added to score!");
     }
-    public void IncreaseScore_Static(float gain)
+    public void IncreaseScore_Static(float gain, int size)
     {
         currentScore += gain;
+
+        switch (size)
+        {
+            case 0:
+                canvasAnim.SetTrigger("increase_score_small");
+                break;
+            case 1:
+                canvasAnim.SetTrigger("increase_score");
+                break;
+            case 2:
+                canvasAnim.SetTrigger("increase_score_final");
+                break;
+            default:
+                Debug.Log("uhhhh something's wrong with the score size lil bro");
+                break;
+        }
         Debug.Log(gain + " added to score!");
     }
 
@@ -126,6 +159,7 @@ public class CowHealthBehavior : MonoBehaviour
             damageSFX.Play();
             cowAnim.SetTrigger("hurt");
             currentScore -= damageAmount;
+            canvasAnim.SetTrigger("decrease_score");
             Debug.Log("Cow Noir took damage!");
         }
     }
