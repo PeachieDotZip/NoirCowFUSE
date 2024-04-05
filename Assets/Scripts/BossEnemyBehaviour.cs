@@ -263,7 +263,10 @@ public class BossEnemyBehaviour : MonoBehaviour
         Instantiate(bashedEffect, gameObject.transform.position, umbrella.gameObject.transform.rotation);
         bossHealth -= damageAmount;
     }
-
+    public void ChangeEnemyTag(string tag)
+    {
+        gameObject.tag = tag;
+    }
 
     public void JumbleState()
     {

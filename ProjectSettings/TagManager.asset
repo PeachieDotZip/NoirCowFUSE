@@ -15,6 +15,7 @@ TagManager:
   - Enemy_Charging
   - Player_Invuln
   - Key
+  - BossDazed
   layers:
   - Default
   - TransparentFX

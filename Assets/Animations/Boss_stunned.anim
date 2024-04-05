@@ -786,6 +786,20 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.016666668
+    functionName: ChangeEnemyTag
+    data: BossDazed
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 6.9166665
+    functionName: ChangeEnemyTag
+    data: Enemy
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 7
     functionName: ReturnToIdleState
     data: 
