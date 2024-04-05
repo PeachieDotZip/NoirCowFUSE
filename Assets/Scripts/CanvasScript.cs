@@ -19,6 +19,8 @@ public class CanvasScript : MonoBehaviour
     private List<GameObject> roomEnemies;
     public Transform barTelepoint;
     public bool firstScene;
+    public AudioSource scoreSound;
+    public AudioSource scoreSoundFinal;
 
     private void Start()
     {
@@ -55,11 +57,30 @@ public class CanvasScript : MonoBehaviour
         Camera.main.transform.position = barTelepoint.position;
     }
     /// <summary>
-    /// Activates the enemies in the new room.
+    /// 0 - small
+    /// 1 - medium
+    /// 2 - large
     /// </summary>
-    public void SpawnEnemies()
+    /// <param name="size"></param>
+    public void PlayScoreSound(int size)
     {
-        
+        switch (size)
+        {
+            case 0:
+                scoreSound.volume = 0.3f;
+                scoreSound.Play();
+                break;
+            case 1:
+                scoreSound.volume = 0.9f;
+                scoreSound.Play();
+                break;
+            case 2:
+                scoreSoundFinal.Play();
+                break;
+            default:
+                Debug.Log("I just shit myself");
+                break;
+        }
     }
     /// <summary>
     /// Returns the animator to idle, allowing the player to enter another door.
