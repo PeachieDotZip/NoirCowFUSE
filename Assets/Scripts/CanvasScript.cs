@@ -67,11 +67,11 @@ public class CanvasScript : MonoBehaviour
         switch (size)
         {
             case 0:
-                scoreSound.volume = 0.3f;
+                scoreSound.volume = 0.2f;
                 scoreSound.Play();
                 break;
             case 1:
-                scoreSound.volume = 0.9f;
+                scoreSound.volume = 0.5f;
                 scoreSound.Play();
                 break;
             case 2:

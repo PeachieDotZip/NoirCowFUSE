@@ -22,6 +22,7 @@ public class UmbrellaBehaviour : MonoBehaviour
     public AudioSource bashSwingSFX;
     public AudioSource ricochetSFX;
     public bool checkpoint;
+    public Animator controllerLine;
 
     private void Awake()
     {
@@ -48,10 +49,12 @@ public class UmbrellaBehaviour : MonoBehaviour
         if (isOpen)
         {
             cow.speed = 5.5f;
+            if (GameManager.usingController) { controllerLine.SetBool("on", true); }
         }
         else
         {
             cow.speed = 7.7f;
+            if (GameManager.usingController) { controllerLine.SetBool("on", false); }
         }
 
         //vvv Umbrella Variable Control -----
