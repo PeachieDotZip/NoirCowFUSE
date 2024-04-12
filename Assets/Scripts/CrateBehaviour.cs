@@ -48,7 +48,7 @@ public class CrateBehaviour : MonoBehaviour
         if (collision.CompareTag("Umbrella"))
         {
             Debug.Log("crate touched umbrella");
-            if (umbrella.isBashing == true)
+            if (umbrella.isPoking == true)
             {
                 BreakSelf();
             }
@@ -64,7 +64,7 @@ public class CrateBehaviour : MonoBehaviour
         if (collision.CompareTag("Umbrella"))
         {
             Debug.Log("crate touched umbrella");
-            if (umbrella.isBashing == true)
+            if (umbrella.isPoking == true)
             {
                 BreakSelf();
             }
