@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class CanvasScript : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class CanvasScript : MonoBehaviour
     public bool firstScene;
     public AudioSource scoreSound;
     public AudioSource scoreSoundFinal;
+    public PostProcessProfile profile;
 
     private void Start()
     {
@@ -79,6 +81,27 @@ public class CanvasScript : MonoBehaviour
                 break;
             default:
                 Debug.Log("I just shit myself");
+                break;
+        }
+    }
+    public void IntroFunction(int colorChange)
+    {
+        switch (colorChange)
+        {
+            case 0:
+                //changes colors to pause-screen colors for intro
+                //profile.GetSetting<ColorGrading>().saturation.value = -100f;
+                //profile.GetSetting<ColorGrading>().contrast.value = 60f;
+                break;
+            case 1:
+                //changes back to normal colors for gameplay
+                //Mathf.Lerp(profile.GetSetting<ColorGrading>().saturation.value, -60f, 5f);
+                //Mathf.Lerp(profile.GetSetting<ColorGrading>().contrast.value, 10f, 5f);
+                //profile.GetSetting<ColorGrading>().saturation.value = -60f;
+                //profile.GetSetting<ColorGrading>().contrast.value = 10;
+                break;
+            default:
+                Debug.Log("input invalid or whatever");
                 break;
         }
     }

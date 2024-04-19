@@ -6070,20 +6070,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WASD to move
-
-
-    HOLD RIGHT CLICK TO OPEN UMBRELLA, RELEASE TO CLOSE
-    UMBRELLA
-
-    Holding the umbrella open will deflect incoming projectiles!
-
-
-    PRESS
-    LEFT CLICK (WHILE UMBRELLA IS OPEN) TO BASH
-
-    Bashing a projectile will send
-    the projectile back in the direction you are facing! '
+  m_text: "HOLD RIGHT CLICK/LEFT TRIGGER TO OPEN UMBRELLA, RELEASE TO CLOSE UMBRELLA\nHolding
+    the umbrella open will deflect incoming projectiles!\n\nPRESS LEFT CLICK/RIGHT
+    TRIGGER (WHILE UMBRELLA IS OPEN) TO BASH\nBashing a projectile will send the
+    projectile back in the direction you are facing! \nThere is some timing to it."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
